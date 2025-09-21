@@ -10,15 +10,11 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Persona implements Serializable {
+public class Pasaporte implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;  // Added ID for JPA
 
-    @Column(nullable = false)
-    protected String nombre;
-
-    @Column(nullable = false)
-    protected String apellido;
+    @Column(nullable = false, unique = true)
+    private String numero;
 }
